@@ -1,0 +1,61 @@
+public class MyProgram
+{
+    public static void main(String[] args)
+    {
+    System.out.println("Hola Ingeniero :)");
+        
+     //Int a String y Int a Double  
+      Integer numero = 0;
+    System.out.println(numero);
+        
+    String texto = "El numero es: ";
+    System.out.println(texto + numero);
+        
+    String numero_texto = numero.toString();
+    String textoo = "El numero en decimal es: ";
+    Double numerooo = numero.doubleValue(); 
+    System.out.println(textoo + numerooo);
+    
+    //Double a String y Double a Int
+    Double numero1 = 2.00;
+    System.out.println(numero1);
+        
+    String texto1 = "El numero decimal es: ";
+    System.out.println(texto1 + numero1);  
+        
+    Integer numerop = numero1.intValue();
+    String textos = "El numero en entero es: ";
+    System.out.println(textos + numerop);
+        
+     //Variable Booleana 
+    Boolean osos = true;
+    System.out.println(osos);
+    String texto2 = "La variable booleana es: ";
+        
+    System.out.println(texto2 + osos);  
+    
+    String osos_texto2 = osos.toString();   
+    
+    //Suma de Strings
+    String texto4 = "Hola ";
+    String texto5 = "Chaparro";
+    System.out.println(texto4 + texto5);
+    
+    //Suma de numeros
+    Integer sum = 4;
+    String sumsum = "El primer numero es: ";
+    System.out.println(sumsum + sum);
+    
+    Integer sum2 = 6;
+    String sumsum2 = "El  segundo numero es: ";
+    System.out.println(sumsum2 + sum2);
+    
+    Integer suma = sum + sum2;
+ 
+    String sumatoria = "La suma es: ";
+    System.out.println(sumatoria + suma);
+    
+    
+    
+    }
+}
