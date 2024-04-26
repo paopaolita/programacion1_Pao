@@ -1,0 +1,21 @@
+import java.util.Scanner;
+
+public class MyProgram {
+    public static void main(String[] args) {
+     
+    Scanner scanner = new Scanner(System.in);
+    System.out.print("Ingrese su experiencia laboral: ");
+	int num3 = scanner.nextInt();
+	
+	if(num3 <= 5) {
+	 System.out.print("Principiante");
+	}
+	else if (num3 > 5 && num3 < 10) {
+	System.out.print("Intermedio");
+	}
+	else if (num3 >= 10) {
+    System.out.print("Experto");
+	}
+   
+    }
+}

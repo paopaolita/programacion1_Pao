@@ -1,0 +1,24 @@
+import java.util.Scanner;
+
+public class MyProgram {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("\nIngresa una letra: ");
+        String nombre = scanner.nextLine();
+
+        if (nombre.equals("a") || nombre.equals("A")) {
+            System.out.println("Amarillo");
+        } else if (nombre.equals("e") || nombre.equals("E")) {
+            System.out.println("Enano");
+        } else if (nombre.equals("i") || nombre.equals("I")) {
+            System.out.println("Inepto");
+        } else if (nombre.equals("o") || nombre.equals("O")) {
+            System.out.println("Oso");
+        } else if (nombre.equals("u") || nombre.equals("U")) {
+            System.out.println("Uva");
+        } else {
+            System.out.println("No ingresó una vocal.");
+        }
+    }
+}

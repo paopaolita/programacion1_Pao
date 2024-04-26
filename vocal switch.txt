@@ -1,0 +1,30 @@
+import java.util.Scanner;
+
+public class MyProgram {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("\nIngresa una letra: ");
+        String nombre = scanner.nextLine().toLowerCase();
+        switch (nombre) {
+            case "a":
+                System.out.println("Amarillo");
+                break;
+            case "e":
+                System.out.println("Enano");
+                break;
+            case "i":
+                System.out.println("Inepto");
+                break;
+            case "o":
+                System.out.println("Oso");
+                break;
+            case "u":
+                System.out.println("Uva");
+                break;
+            default:
+                System.out.println("No ingresó una vocal.");
+                break;
+        }
+    }
+}

@@ -1,0 +1,15 @@
+import java.util.Scanner;
+
+public class MyProgram {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Ingrese un número por favor: ");
+        Integer num3 = scanner.nextInt();
+
+        if (num3 % 2 == 0) {
+            System.out.println("El número es par: " + num3);
+        } else {
+            System.out.println("El número es impar: " + num3);
+        }
+    }
+}
