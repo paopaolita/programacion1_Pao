@@ -1,0 +1,4 @@
+num = int(input("Ingresa el primer numero: "))
+num2 = int(input("Ingresa el segundo numero: "))
+resta = num - num2
+print("La resta es,", resta)

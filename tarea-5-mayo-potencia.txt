@@ -1,0 +1,4 @@
+num = int(input("Ingresa el primer numero: "))
+num2 = int(input("Ingresa el segundo numero: "))
+poten = num ** num2
+print("El primer numero potenciado por el segundo numero es,", poten)
