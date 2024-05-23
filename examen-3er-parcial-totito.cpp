@@ -1,16 +1,16 @@
 #include <iostream>
-#include <cstdlib> 
-#include <ctime>   
+#include <cstdlib>
+#include <ctime>
 
 using namespace std;
 
 void imprimirTablero(char tab[3][3]) {
-	cout << "Tablero actual:\n";
+	cout << "Tablero actual:" << endl;
 	for (int i = 0; i < 3; i++) {
 		for (int j = 0; j < 3; j++) {
 			cout << tab[i][j] << " ";
 		}
-		cout << "\n";
+		cout << endl;
 	}
 }
 
@@ -44,26 +44,49 @@ void jugar(char tab[3][3], char jugador) {
 		cout << "Jugador " << jugador << ", ingrese fila y columna (0-2): ";
 		cin >> fila >> columna;
 		
-		if (fila >= 0 && fila < 3 && columna >= 0 && columna < 3 && tab[fila][columna] != 'X' && tab[fila][columna] != 'O') {
+		if (cin.fail() || fila < 0 || fila > 2 || columna < 0 || columna > 2 || tab[fila][columna] == 'X' || tab[fila][columna] == 'O') {
+			cin.clear();
+			cin.ignore(10000, '\n');
+			cout << "Movimiento no válido. Intente de nuevo." << endl;
+		} else {
 			tab[fila][columna] = jugador;
 			movimientoValido = true;
-		} else {
-			cout << "Movimiento no v�lido. Intente de nuevo.\n";
 		}
 	}
 }
 
 void iniciarTablero(char tab[3][3]) {
 	char contador = '1';
-	for (int i = 0; i < 3; i++)
-		for (int j = 0; j < 3; j++)
+	for (int i = 0; i < 3; i++) {
+		for (int j = 0; j < 3; j++) {
 			tab[i][j] = contador++;
+		}
+	}
+}
+
+void mostrarInstrucciones() {
+	string reg;
+	cout << "¡Buenos días! Vamos a explicar las reglas del juego." << endl;
+	cout << "¿Estás listo? (si/no): ";
+	cin >> reg;
+	if (reg == "si" || reg == "Si") {
+		cout << "Muy bien, empecemos:" << endl;
+		cout << "Los números del tablero se dividen de la siguiente manera:" << endl;
+		cout << "Fila 0 --> 1 2 3" << endl;
+		cout << "Fila 1 --> 4 5 6" << endl;
+		cout << "Fila 2 --> 7 8 9" << endl;
+		cout << "Primero se pone el número de la fila de manera horizontal, luego la columna vertical." << endl;
+	} else {
+		cout << "Entonces, ¿para qué preguntas? ¡Jajaja!" << endl;
+	}
 }
 
 int main() {
 	char tab[3][3];
 	char jugadorActual;
 	bool finDelJuego;
+	
+	mostrarInstrucciones();  
 	
 	do {
 		iniciarTablero(tab);
@@ -72,33 +95,29 @@ int main() {
 		finDelJuego = false;
 		
 		while (!finDelJuego) {
-			system("cls");
 			imprimirTablero(tab);
 			jugar(tab, jugadorActual);
 			
 			if (verificarGanador(tab, jugadorActual)) {
-				system("cls");
 				imprimirTablero(tab);
-				cout << "El jugador " << jugadorActual << " ha ganado!\n";
+				cout << "¡El jugador " << jugadorActual << " ha ganado!" << endl;
 				finDelJuego = true;
 			} else if (esEmpate(tab)) {
-				system("cls");
 				imprimirTablero(tab);
-				cout << "Es un empate!\n";
+				cout << "¡Es un empate!" << endl;
 				finDelJuego = true;
 			}
 			
 			jugadorActual = (jugadorActual == 'X') ? 'O' : 'X';
 		}
 		
-		char respuesta;
-		cout << "�Desea volver a jugar? (s/n): ";
+		string respuesta;
+		cout << "¿Desea volver a jugar? (s/n): ";
 		cin >> respuesta;
-		if (respuesta != 's' && respuesta != 'S')
+		if (respuesta != "s" && respuesta != "S") {
 			break;
-		
+		}
 	} while (true);
 	
 	return 0;
 }
-
